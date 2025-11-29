@@ -6,19 +6,669 @@
     <title>Pmats India</title>
     <meta name="description" content="Pmats Project" />
     <meta name="author" content="Ron-Caster" />
-
     <meta property="og:title" content="Pmats India" />
     <meta property="og:description" content="Pmats Project" />
     <meta property="og:type" content="website" />
-    <!-- <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" /> -->
-
-    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
-    <!-- <meta name="twitter:site" content="@lovable_dev" /> -->
-    <!-- <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" /> -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen bg-background text-foreground font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              Pmats
+            </span>
+            <span class="text-xs text-muted-foreground -mt-1">
+              A Pulickal & AJ Concern
+            </span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <button onclick="scrollToSection('hero')" class="text-foreground hover:text-primary transition-colors">
+              Home
+            </button>
+            <button onclick="scrollToSection('products')" class="text-foreground hover:text-primary transition-colors">
+              Products
+            </button>
+            <button onclick="scrollToSection('gallery')" class="text-foreground hover:text-primary transition-colors">
+              Gallery
+            </button>
+            <button onclick="scrollToSection('contact')" class="text-foreground hover:text-primary transition-colors">
+              Contact
+            </button>
+            <button 
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground"
+              onclick="scrollToSection('contact')"
+            >
+              Get Quote
+            </button>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button
+            class="md:hidden p-2"
+            id="mobile-menu-btn"
+            aria-label="Toggle menu"
+          >
+            <i data-lucide="menu" id="menu-icon"></i>
+            <i data-lucide="x" id="close-icon" class="hidden"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <button
+              onclick="scrollToSection('hero')"
+              class="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+            >
+              Home
+            </button>
+            <button
+              onclick="scrollToSection('products')"
+              class="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+            >
+              Products
+            </button>
+            <button
+              onclick="scrollToSection('gallery')"
+              class="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+            >
+              Gallery
+            </button>
+            <button
+              onclick="scrollToSection('contact')"
+              class="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
+            >
+              Contact
+            </button>
+            <div class="px-3 py-2">
+              <button 
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground"
+                onclick="scrollToSection('contact')"
+              >
+                Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style="background-image: url('assets/hero-gym-C5FxCHPO.jpg')"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50"></div>
+        </div>
+        
+        <div class="relative z-10 container mx-auto px-4 text-center">
+          <div class="animate-fade-in">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+              Pmats
+            </h1>
+            <p class="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
+              A PULICKAL & AJ CONCERN
+            </p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              Flooring That Fuels Your Fitness
+            </h2>
+            <p class="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+              Designed for Home Gyms, Commercial Fitness Centres, Athletic Facilities, and Play Schools
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 text-lg px-8 py-6 bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground"
+                onclick="scrollToSection('products')"
+              >
+                Explore Our Products
+              </button>
+              <button 
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 text-lg px-8 py-6 border border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-background"
+                onclick="scrollToSection('contact')"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section id="products" class="py-20 bg-gradient-to-b from-background to-muted/20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Product Categories
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive range of premium gym and sports flooring solutions for every need
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm group hover:shadow-glow transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm animate-fade-in overflow-hidden" style="animation-delay: 0s">
+              <div class="aspect-video overflow-hidden">
+                <img
+                  src="assets/solid-top-mat-C_5nge39.jpg"
+                  alt="Solid Top Gym Mats"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary group-hover:text-primary/80 transition-colors">
+                  Solid Top Gym Mats
+                </h3>
+              </div>
+              <div class="p-6 pt-0 space-y-4">
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Size:</span>
+                    <p class="text-foreground">3ft x 3ft  (91cmx91cm)</p>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Thickness:</span>
+                    <p class="text-foreground">16mm</p>
+                  </div>
+                  <div class="col-span-2">
+                    <span class="font-semibold text-muted-foreground">Weight:</span>
+                    <p class="text-foreground">8–8.5 kg</p>
+                  </div>
+                </div>
+                <p class="text-muted-foreground leading-relaxed">
+                  Premium solid surface gym mats perfect for heavy equipment and high-intensity workouts.
+                </p>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm group hover:shadow-glow transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm animate-fade-in overflow-hidden" style="animation-delay: 0.1s">
+              <div class="aspect-video overflow-hidden">
+                <img
+                  src="assets/interlocking-mat-CNpMzJMW.jpg"
+                  alt="Cow Mats"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary group-hover:text-primary/80 transition-colors">
+                  Cow Mats
+                </h3>
+              </div>
+              <div class="p-6 pt-0 space-y-4">
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Size:</span>
+                    <p class="text-foreground">50cm x 50cm – 1m x 1m</p>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Thickness:</span>
+                    <p class="text-foreground">8mm–16mm</p>
+                  </div>
+                  <div class="col-span-2">
+                    <span class="font-semibold text-muted-foreground">Weight:</span>
+                    <p class="text-foreground">2.5–15 kg</p>
+                  </div>
+                </div>
+                <p class="text-muted-foreground leading-relaxed">
+                  Interlocking Mats, 2 Side Diamond Top, 4 Side Amoeba Top, Hammer Top & Bubble Top.
+                </p>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm group hover:shadow-glow transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm animate-fade-in overflow-hidden" style="animation-delay: 0.2s">
+              <div class="aspect-video overflow-hidden">
+                <img
+                  src="assets/rubber-tile-mat-BKERHun8.jpg"
+                  alt="Rubber Puzzle Gym Mats"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary group-hover:text-primary/80 transition-colors">
+                  Rubber Puzzle Gym Mats
+                </h3>
+              </div>
+              <div class="p-6 pt-0 space-y-4">
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Size:</span>
+                    <p class="text-foreground">1mtr x 1mtr</p>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-muted-foreground">Thickness:</span>
+                    <p class="text-foreground">8mm, 10mm, 12mm, 16mm</p>
+                  </div>
+                  <div class="col-span-2">
+                    <span class="font-semibold text-muted-foreground">Weight:</span>
+                    <p class="text-foreground">2.5–4.2 kg</p>
+                  </div>
+                </div>
+                <p class="text-muted-foreground leading-relaxed">
+                  Durable rubber tiles with excellent grip and shock absorption properties.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="py-20 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Why Choose Us?
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Experience the difference with our premium gym flooring solutions
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group text-center p-8 rounded-lg bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-all duration-300 animate-fade-in" style="animation-delay: 0s">
+              <div class="mb-6 flex justify-center">
+                <i data-lucide="check" class="h-12 w-12 text-primary mx-auto group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                Premium Materials
+              </h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Rubber-based for durability and performance
+              </p>
+            </div>
+
+            <div class="group text-center p-8 rounded-lg bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-all duration-300 animate-fade-in" style="animation-delay: 0.1s">
+              <div class="mb-6 flex justify-center">
+                <i data-lucide="puzzle" class="h-12 w-12 text-primary mx-auto group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                Variety of Designs
+              </h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Solid top, interlocking, tile type, EVA puzzle styles
+              </p>
+            </div>
+
+            <div class="group text-center p-8 rounded-lg bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-all duration-300 animate-fade-in" style="animation-delay: 0.2s">
+              <div class="mb-6 flex justify-center">
+                <i data-lucide="settings" class="h-12 w-12 text-primary mx-auto group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                Custom Sizes Available
+              </h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Ideal for a range of applications
+              </p>
+            </div>
+
+            <div class="group text-center p-8 rounded-lg bg-card/80 backdrop-blur-sm border border-border/50 hover:shadow-glow transition-all duration-300 animate-fade-in" style="animation-delay: 0.3s">
+              <div class="mb-6 flex justify-center">
+                <i data-lucide="school" class="h-12 w-12 text-primary mx-auto group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                Trusted by Institutions
+              </h3>
+              <p class="text-muted-foreground leading-relaxed">
+                From play schools to professional gyms
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="py-20 bg-gradient-to-b from-muted/20 to-background">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Gallery
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Explore our complete range of premium gym and sports flooring solutions
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Gallery Items -->
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/solid-top-mat-C_5nge39.jpg" alt="Solid Top Gym Mat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Solid Top Gym Mat</h3>
+                <p class="text-sm text-muted-foreground">3ft x 3ft, 16mm thickness, premium durability</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.05s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/interlocking-mat-CNpMzJMW.jpg" alt="4-Side Interlocking Mat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">4-Side Interlocking Mat</h3>
+                <p class="text-sm text-muted-foreground">Easy installation, customizable coverage</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.1s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/rubber-tile-mat-BKERHun8.jpg" alt="Rubber Tile Type Mat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Rubber Tile Type Mat</h3>
+                <p class="text-sm text-muted-foreground">Excellent grip and shock absorption</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.15s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/eva-puzzle-normal-BFIJGlnY.jpg" alt="EVA Puzzle Normal Density" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">EVA Puzzle Normal Density</h3>
+                <p class="text-sm text-muted-foreground">Comfortable foam for floor exercises</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/eva-puzzle-high-B_ABleu5.jpg" alt="EVA Puzzle High Density" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">EVA Puzzle High Density</h3>
+                <p class="text-sm text-muted-foreground">Enhanced durability and support</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.25s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/galaxy-tile-CxSzbkGS.jpg" alt="Galaxy Tile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Galaxy Tile</h3>
+                <p class="text-sm text-muted-foreground">Unique pattern design, premium look</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.3s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/amoeba-top-BscjGE1S.jpg" alt="Amoeba Top" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Amoeba Top</h3>
+                <p class="text-sm text-muted-foreground">Organic flowing pattern design</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.35s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/epdm-roll-C05hXRsn.jpg" alt="EPDM Roll" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">EPDM Roll</h3>
+                <p class="text-sm text-muted-foreground">Professional grade outdoor surface</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.4s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/lightweight-mat-Bai5gDRN.jpg" alt="Lightweight Mat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Lightweight Mat</h3>
+                <p class="text-sm text-muted-foreground">Portable design for home and travel</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.45s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/ldp-sole-C08BMIMh.jpg" alt="LDP Sole" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">LDP Sole</h3>
+                <p class="text-sm text-muted-foreground">Specialized sole pattern for enhanced grip</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.5s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/eva-color-tile-CxhvmZbZ.jpg" alt="EVA Colour Tile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">EVA Colour Tile</h3>
+                <p class="text-sm text-muted-foreground">Vibrant colors for children's play areas</p>
+              </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg bg-card border border-border/50 hover:shadow-glow transition-all duration-500 animate-fade-in" style="animation-delay: 0.55s">
+              <div class="aspect-square overflow-hidden">
+                <img src="assets/variations-collection-DEz2H7bh.jpg" alt="Premium Variations" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+                <h3 class="text-lg font-bold text-foreground mb-2">Premium Variations</h3>
+                <p class="text-sm text-muted-foreground">Professional collection for commercial use</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="py-20 bg-gradient-to-b from-background to-muted/20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              📞 Contact Us
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get in touch with Pulickal & AJ Flooring for your premium gym mat needs
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <!-- Contact Information -->
+            <div class="space-y-8 animate-fade-in">
+              <div class="rounded-lg border bg-card text-card-foreground shadow-sm bg-card/80 backdrop-blur-sm border-border/50">
+                <div class="flex flex-col space-y-1.5 p-6">
+                  <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary flex items-center gap-3">
+                    <i data-lucide="map-pin" class="h-6 w-6"></i>
+                    Pulickal & AJ Flooring
+                  </h3>
+                </div>
+                <div class="p-6 pt-0 space-y-4">
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="map-pin" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                    <div>
+                      <p class="font-semibold text-foreground">Location</p>
+                      <p class="text-muted-foreground">Pulickal & AJ Flooring, Chingavanam P.O, Kottayam, Kerala - 686531</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="mail" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                    <div>
+                      <p class="font-semibold text-foreground">Email</p>
+                      <p class="text-muted-foreground">[Your Email]</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="phone" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                    <div>
+                      <p class="font-semibold text-foreground">Phone</p>
+                      <p class="text-muted-foreground">+917012351774</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-primary rounded-lg p-8 text-primary-foreground">
+                <h3 class="text-2xl font-bold mb-4">Why Choose Our Mats?</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary-foreground rounded-full"></span>
+                    Premium quality rubber-based materials
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary-foreground rounded-full"></span>
+                    Suitable for all types of fitness facilities
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary-foreground rounded-full"></span>
+                    Custom sizes and designs available
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-primary-foreground rounded-full"></span>
+                    Trusted by professionals nationwide
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm animate-fade-in bg-card/80 backdrop-blur-sm border-border/50" style="animation-delay: 0.2s">
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight text-primary flex items-center gap-3">
+                  <i data-lucide="message-square" class="h-6 w-6"></i>
+                  Send Us a Message
+                </h3>
+              </div>
+              <div class="p-6 pt-0 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-foreground mb-2">
+                      First Name
+                    </label>
+                    <input placeholder="Enter your first name" class="flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background/50" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-foreground mb-2">
+                      Last Name
+                    </label>
+                    <input placeholder="Enter your last name" class="flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background/50" />
+                  </div>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">
+                    Email
+                  </label>
+                  <input type="email" placeholder="Enter your email" class="flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background/50" />
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">
+                    Phone
+                  </label>
+                  <input type="tel" placeholder="Enter your phone number" class="flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background/50" />
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-medium text-foreground mb-2">
+                    Project Details
+                  </label>
+                  <textarea 
+                    placeholder="Tell us about your flooring needs, space dimensions, and specific requirements..."
+                    class="flex min-h-[80px] w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[120px] bg-background/50"
+                  ></textarea>
+                </div>
+                
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-t from-secondary to-background border-t border-border/50">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Company Info -->
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                Pmats
+              </h3>
+              <p class="text-muted-foreground">A Pulickal & AJ Concern</p>
+            </div>
+            <p class="text-muted-foreground leading-relaxed">
+              Premium rubber-based gym and multi-sports mats for home gyms, commercial fitness centres, athletic facilities, and play schools.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-4">
+            <h4 class="text-lg font-semibold text-foreground">Quick Links</h4>
+            <div class="space-y-2">
+              <a href="#products" class="block text-muted-foreground hover:text-primary transition-colors">
+                Product Categories
+              </a>
+              <a href="#gallery" class="block text-muted-foreground hover:text-primary transition-colors">
+                Gallery
+              </a>
+              <a href="#contact" class="block text-muted-foreground hover:text-primary transition-colors">
+                Contact Us
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <h4 class="text-lg font-semibold text-foreground">Contact Information</h4>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="h-4 w-4 text-primary flex-shrink-0 mt-1"></i>
+                <div class="text-muted-foreground">
+                  <div class="font-medium">Pmats</div>
+                  <div>Pulickal & AJ Flooring</div>
+                  <div>Chingavanam P.O, Kottayam</div>
+                  <div>Kerala - 686531</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="h-4 w-4 text-primary flex-shrink-0"></i>
+                <span class="text-muted-foreground">[Your Email]</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="h-4 w-4 text-primary flex-shrink-0"></i>
+                <span class="text-muted-foreground">+917012351774</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-border/50 mt-12 pt-8 text-center">
+          <p class="text-muted-foreground">
+            © 2024 Pmats - Pulickal & AJ Concern. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <button
+      class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#128C7E] shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center p-0"
+      onclick="window.open('https://wa.me/+917012351774', '_blank')"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="white"
+        class="w-6 h-6"
+      >
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z" />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
   </body>
 </html>
